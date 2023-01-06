@@ -78,12 +78,17 @@ def format_key(key: str) -> str:
         key = "PG_UP"
     elif key == "KC_PGDOWN":
         key = "PG_DN"
+    elif key == "KC_MEDIA_NEXT_TRACK":
+        key = "C_NEXT"
+    elif key == "KC_MEDIA_PREV_TRACK":
+        key = "C_PREV"
+    elif key == "KC_MEDIA_PLAY_PAUSE":
+        key = "C_PP"
         # TODO:
     elif key == "KC_NO" or key == "WEBUSB_PAIR" or key == "KC_HYPR" or key == "KC_MS_BTN4" or key == "RESET":
         return "&none"
 
-    if key.startswith("KC_MEDIA"):
-        return "&none" # TODO
+    assert not key.startswith("KC_MEDIA")
     if key.startswith("ST_MACRO"):
         return "&none" # TODO
 
